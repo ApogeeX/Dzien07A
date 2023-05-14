@@ -1,0 +1,50 @@
+﻿@model Person
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+@using (Html.BeginForm("DeleteConfirmed", "Person"))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Confirm deletion</h4>
+        @Html.HiddenFor(model => model.PersonId)
+    </div>
+
+
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.PersonId)</th>
+            <th>@Html.DisplayNameFor(model => model.PersonName)</th>
+            <th>@Html.DisplayNameFor(model => model.PersonAge)</th>
+        </tr>
+        <tr></tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.PersonId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.PersonName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.PersonAge)
+            </td>
+        </tr>
+
+    </table>
+
+    <div class="form-group">
+        <div class="col-md-11">
+            <input type="submit" value="Confirm" class="btn btn-danger" />
+
+            @Html.ActionLink("Cancel", "Index", "Index", htmlAttributes: new {@class="btn btn-primary" })
+        </div>
+
+    </div>
+}
+
+

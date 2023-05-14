@@ -1,0 +1,48 @@
+﻿@model Person
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+@*    <div class="form-horizontal">
+        <h4>Edycja danych</h4>
+        @Html.HiddenFor(model => model.PersonId)
+    </div>*@
+
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.PersonId)</th>
+            <th>@Html.DisplayNameFor(model => model.PersonName)</th>
+            <th>@Html.DisplayNameFor(model => model.PersonAge)</th>
+            <th>Actions</th>
+        </tr>
+        <tr></tr>
+            <tr>
+                <td>
+                @Html.DisplayFor(model => model.PersonId)
+                </td>
+                <td>
+                @Html.DisplayFor(model => model.PersonName)
+                </td>
+                <td>
+                @Html.DisplayFor(model => model.PersonAge)
+                </td>
+                <td>
+                @Html.ActionLink("Edit", "Edit", "Person", new { id = Model.PersonId}, htmlAttributes: new {@class="btn btn-success" })
+                @Html.ActionLink("Delete", "Delete", "Person", new { id = Model.PersonId}, htmlAttributes: new {@class="btn btn-danger" })
+                </td>
+            </tr>
+
+    </table>
+
+}
+
+<div>
+    @Html.ActionLink("Back to list", "Index", "Index", htmlAttributes: new {@class="btn btn-primary" })
+</div>
