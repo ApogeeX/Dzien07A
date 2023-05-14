@@ -19,5 +19,6 @@ namespace EFTest2.Models
 
         [StringLength(200)]
         public string? Address { get; set; }
+
     }
 }

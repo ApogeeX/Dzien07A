@@ -1,21 +1,28 @@
-﻿using EFTest2.Models;
+﻿using EFTest2.Data;
+using EFTest2.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace EFTest2.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : Controller 
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _dbContext;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext dbContext)
         {
             _logger = logger;
+            _dbContext = dbContext;
         }
 
         public IActionResult Index()
         {
-            return View();
+            IList<Employee> employees = _dbContext.Employees.ToList();
+
+            //_dbContext.Employees.Add(new Employee());
+            //_dbContext.SaveChanges();
+            return View(employees);
         }
 
         public IActionResult Privacy()
