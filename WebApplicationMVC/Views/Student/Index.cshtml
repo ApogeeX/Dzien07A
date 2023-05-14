@@ -26,13 +26,20 @@
             <select asp-for="Country" asp-items="Model.Countries" class="form-control"></select>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-4"></div>
-        <div class="col-lg-8">
-            <button type="submit" class="btn btn-primary">Zapisz</button>
+    <div class="col-lg-4"></div>
+        <div class="col-5">
+        <div class="btn-group dropright">
+            <button type="submit" class="btn btn-secondary">
+                Zapisz
+            </button>
+            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="sr-only"></span>
+            </button>
+            <div class="dropdown-menu">
+                <button class="dropdown-item" type="reset">Reset</button>
+            </div>
         </div>
-        
-    </div>
+   </div>
 
 
 </form>

@@ -5,9 +5,10 @@ namespace WebApplicationMVC.Models
 {
     public class Student
     {
-        [Required(ErrorMessage = "Pole jest obowiązkowe")]
+        [Required(AllowEmptyStrings = true, ErrorMessage = "Pole jest obowiązkowe")]
         public string Name { get; set; } = default!;
 
+        [Required]
         [EmailAddress]
         public string Email { get; set; } = default!;
         public string Country { get; set; } = default!;
