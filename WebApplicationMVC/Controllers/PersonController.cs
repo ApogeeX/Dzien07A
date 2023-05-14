@@ -30,9 +30,18 @@ namespace WebApplicationMVC.Controllers
             return View(person);
         }
 
-        public IActionResult Create(int id)
+        public IActionResult Create()
         {
-            var p = new Person { PersonId = id, PersonAge=0, PersonName=""};
+            int x = 0;
+            if(peopleList.Count == 0)
+            {
+                x = 1;
+            }
+            else
+            {
+                x = peopleList.Max(x => x.PersonId) + 1;
+            }
+            var p = new Person { PersonId = x, PersonAge=0, PersonName=""};
             return View(p);
         }
 
